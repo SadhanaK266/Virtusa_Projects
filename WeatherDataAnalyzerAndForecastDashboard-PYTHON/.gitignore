@@ -1,0 +1,13 @@
+# Ignore environment file (VERY IMPORTANT)
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore data files (if you want)
+# data/weather_data.csv
