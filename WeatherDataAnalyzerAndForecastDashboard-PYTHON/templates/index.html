@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f4f6f8;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 30px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        img {
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌤️ Weather Dashboard</h1>
+        <!-- 🔍 City Search -->
+        <form method="GET">
+            <input type="text" name="city" placeholder="Enter city" value="{{ city }}" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <hr>
+        {% if weather %}
+            <h2>Current Weather - {{ city }}</h2>
+            <p><b>Temperature:</b> {{ weather.temperature }} °C</p>
+            <p><b>Humidity:</b> {{ weather.humidity }} %</p>
+            <p><b>Time:</b> {{ weather.date }}</p>
+
+            <h2>📊 Weather Trends</h2>
+            <img src="{{ url_for('static', filename='charts.png') }}" width="600">
+
+            <h2>🤖 Prediction</h2>
+            <p><b>Next Hour Temperature:</b> {{ prediction }} °C</p>
+        {% else %}
+            <h2 style="color:red;">❌ Invalid city name. Please try again.</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
