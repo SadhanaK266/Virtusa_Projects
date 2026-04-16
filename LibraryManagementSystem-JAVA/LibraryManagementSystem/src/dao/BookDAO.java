@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookDAO {
-
     // 1. ADD NEW BOOK
     public boolean addBook(Book book) {
         String query = "INSERT INTO books (title, author, isbn, total_copies, available_copies) VALUES (?, ?, ?, ?, ?)";
